@@ -199,6 +199,9 @@ def _standard_entry_rows(
     rejected: list[dict[str, Any]] = []
     for row in rows:
         depth = str(row.get("JD深度") or "").casefold()
+        if row.get("v3_decision") in {"exclude", "needs_manual_review"}:
+            rejected.append(row)
+            continue
         try:
             score = float(row.get("深评分数") or row.get("CareerOps分数") or 0)
         except (TypeError, ValueError):
@@ -344,6 +347,8 @@ def _entry_preview(
 ) -> dict[str, Any]:
     """Create a digest-bound, write-free proposal for a tracker entry."""
 
+    if any(row.get("v3_decision") in {"exclude", "needs_manual_review"} for row in rows):
+        raise ValueError("v3_eligibility_review_required")
     target = target_snapshot or store.read_active()
     prepared = prepare_rows_for_entry(
         rows,

@@ -1,0 +1,508 @@
+{
+  "dataset_type": "synthetic",
+  "no_real_candidate_or_runtime_data": true,
+  "cases": [
+    {
+      "id": "SYN-01",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Ngau Tau Kok",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000001",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "candidates": [
+        {
+          "title": "Operations Graduate",
+          "company": "Synthetic Holdings",
+          "location": "Ngau Tau Kok",
+          "source": "employer_official_careers",
+          "url": "https://careers.synthetic.example/jobs/1",
+          "requisition_id": "R1",
+          "department": "Operations",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "onsite",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": true
+        }
+      ]
+    },
+    {
+      "id": "SYN-02",
+      "original": {
+        "title": "Corporate Communications Assistant",
+        "company": "Synthetic Insurer",
+        "location": "Tai Po",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000002",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "candidates": [
+        {
+          "title": "Corporate Communications Assistant",
+          "company": "Synthetic Insurer",
+          "location": "Tai Po",
+          "source": "employer_official_careers",
+          "url": "https://careers.synthetic.example/jobs/2",
+          "requisition_id": "R1",
+          "department": "Operations",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "onsite",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": true
+        }
+      ]
+    },
+    {
+      "id": "SYN-03",
+      "original": {
+        "title": "Insurance Sales Consultant",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000003",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "candidates": [
+        {
+          "title": "Insurance Sales Consultant",
+          "company": "Synthetic Holdings",
+          "location": "Hong Kong",
+          "source": "employer_official_careers",
+          "url": "https://careers.synthetic.example/jobs/3",
+          "requisition_id": "R1",
+          "department": "Operations",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "onsite",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": true
+        }
+      ]
+    },
+    {
+      "id": "SYN-04",
+      "original": {
+        "title": "Wealth Management Trainee",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000004",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "candidates": [
+        {
+          "title": "Wealth Management Trainee",
+          "company": "Synthetic Holdings",
+          "location": "Hong Kong",
+          "source": "employer_official_careers",
+          "url": "https://careers.synthetic.example/jobs/4",
+          "requisition_id": "R1",
+          "department": "Operations",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "onsite",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": true
+        }
+      ]
+    },
+    {
+      "id": "SYN-05",
+      "original": {
+        "title": "Consultant / Senior Consultant",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000005",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "candidates": [
+        {
+          "title": "Consultant / Senior Consultant",
+          "company": "Synthetic Holdings",
+          "location": "Hong Kong",
+          "source": "employer_official_careers",
+          "url": "https://careers.synthetic.example/jobs/5",
+          "requisition_id": "R1",
+          "department": "Operations",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "onsite",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": true
+        }
+      ]
+    },
+    {
+      "id": "SYN-06",
+      "original": {
+        "title": "Senior Manager, ESG",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000006",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "candidates": [
+        {
+          "title": "Senior Manager, ESG",
+          "company": "Synthetic Holdings",
+          "location": "Hong Kong",
+          "source": "employer_official_careers",
+          "url": "https://careers.synthetic.example/jobs/6",
+          "requisition_id": "R1",
+          "department": "Operations",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "onsite",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": true
+        }
+      ]
+    },
+    {
+      "id": "SYN-07",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Singapore",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000007",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "candidates": [
+        {
+          "title": "Operations Graduate",
+          "company": "Synthetic Holdings",
+          "location": "Singapore",
+          "source": "employer_official_careers",
+          "url": "https://careers.synthetic.example/jobs/7",
+          "requisition_id": "R1",
+          "department": "Operations",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "onsite",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": true
+        }
+      ]
+    },
+    {
+      "id": "SYN-08",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000008",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "candidates": [
+        {
+          "title": "Operations Graduate",
+          "company": "Synthetic Holdings",
+          "location": "Hong Kong",
+          "source": "employer_official_careers",
+          "url": "https://careers.synthetic.example/jobs/8",
+          "requisition_id": "R1",
+          "department": "Operations",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "onsite",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": true
+        }
+      ]
+    },
+    {
+      "id": "SYN-09",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong / Singapore",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000009",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "candidates": [
+        {
+          "title": "Operations Graduate",
+          "company": "Synthetic Holdings",
+          "location": "Hong Kong / Singapore",
+          "source": "employer_official_careers",
+          "url": "https://careers.synthetic.example/jobs/9",
+          "requisition_id": "R1",
+          "department": "Operations",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "onsite",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": true
+        }
+      ]
+    },
+    {
+      "id": "SYN-10",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000010",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "candidates": [
+        {
+          "title": "Operations Graduate",
+          "company": "Synthetic Holdings",
+          "location": "Hong Kong",
+          "source": "employer_official_careers",
+          "url": "https://careers.synthetic.example/jobs/10",
+          "requisition_id": "R99",
+          "department": "Operations",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "onsite",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": false
+        }
+      ]
+    },
+    {
+      "id": "SYN-11",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000011",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "candidates": [
+        {
+          "title": "Operations Graduate",
+          "company": "Different Synthetic Employer",
+          "location": "Hong Kong",
+          "source": "employer_official_careers",
+          "url": "https://careers.synthetic.example/jobs/11",
+          "requisition_id": "R1",
+          "department": "Operations",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "onsite",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": false
+        }
+      ]
+    },
+    {
+      "id": "SYN-12",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000012",
+        "requisition_id": "",
+        "department": "",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "candidates": [
+        {
+          "title": "Operations Graduate",
+          "company": "Synthetic Holdings",
+          "location": "Hong Kong",
+          "source": "employer_official_careers",
+          "url": "https://careers.synthetic.example/jobs/12",
+          "requisition_id": "",
+          "department": "",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": false
+        }
+      ]
+    },
+    {
+      "id": "SYN-13",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000013",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "candidates": [
+        {
+          "title": "Operations Graduate",
+          "company": "Synthetic Holdings",
+          "location": "Hong Kong",
+          "source": "employer_official_careers",
+          "url": "https://careers.synthetic.example/jobs/13",
+          "requisition_id": "R1",
+          "department": "Operations",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "onsite",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": true,
+          "fields": {
+            "education": "Bachelor degree"
+          }
+        },
+        {
+          "title": "Operations Graduate",
+          "company": "Synthetic Holdings",
+          "location": "Hong Kong",
+          "source": "ctgoodjobs",
+          "url": "https://www.ctgoodjobs.hk/job/10000013",
+          "requisition_id": "R1",
+          "department": "Operations",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "onsite",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": true,
+          "fields": {
+            "education": "Masters degree only"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SYN-14",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000014",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "candidates": [
+        {
+          "title": "Operations Graduate",
+          "company": "Synthetic Holdings",
+          "location": "Hong Kong",
+          "source": "employer_official_careers",
+          "url": "https://careers.synthetic.example/jobs/14",
+          "requisition_id": "R1",
+          "department": "Operations",
+          "employment_type": "FULL_TIME",
+          "work_arrangement": "onsite",
+          "posted_at": "2026-10-01",
+          "teaser": "Support project coordination.",
+          "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+          "fixture_same_job": true
+        }
+      ],
+      "simulate_failure": true
+    },
+    {
+      "id": "SYN-15",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000015",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination.",
+        "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided."
+      },
+      "candidates": []
+    }
+  ]
+}

@@ -1,0 +1,1692 @@
+{
+  "dataset": "synthetic fixtures; no production accuracy claim",
+  "sample_size": 15,
+  "metrics": {
+    "initially_incomplete": 14,
+    "successfully_enriched": 3,
+    "jobs_with_verified_same_job_matches": 4,
+    "verified_same_job_matches": 5,
+    "rejected_or_conflicting_matches": 2,
+    "incorrect_verified_matches_in_fixture": 0,
+    "remaining_uncertain": 8,
+    "classification_changes": 2,
+    "simulated_provider_calls": 50,
+    "simulated_failures": 4,
+    "critical_fields_recovered": 8
+  },
+  "live_network_requests": 0,
+  "before_classifications": {
+    "needs_manual_review": 10,
+    "exclude": 4,
+    "priority_a": 1
+  },
+  "after_classifications": {
+    "priority_a": 3,
+    "exclude": 4,
+    "needs_manual_review": 8
+  },
+  "rows": [
+    {
+      "fixture_id": "SYN-01",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Ngau Tau Kok",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000001",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "before": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "jd_incomplete"
+        ]
+      },
+      "after": {
+        "decision": "priority_a",
+        "eligibility": "eligible",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": []
+      },
+      "evidence_status": "verified_cross_source",
+      "matches": [
+        {
+          "url": "https://careers.synthetic.example/jobs/1",
+          "source": "employer_official_careers",
+          "retrieved_at": "2026-10-08T16:17:42+00:00",
+          "candidate_listing": {
+            "title": "Operations Graduate",
+            "company": "Synthetic Holdings",
+            "location": "Ngau Tau Kok",
+            "source": "employer_official_careers",
+            "url": "https://careers.synthetic.example/jobs/1",
+            "requisition_id": "R1",
+            "department": "Operations",
+            "employment_type": "FULL_TIME",
+            "work_arrangement": "onsite",
+            "posted_at": "2026-10-01",
+            "teaser": "Support project coordination.",
+            "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+            "fixture_same_job": true
+          },
+          "verdict": "verified_same_job",
+          "reasons": [
+            "same_employer",
+            "matching_title",
+            "compatible_hk_location",
+            "same_requisition_id"
+          ],
+          "conflicts": []
+        }
+      ],
+      "field_provenance": {
+        "responsibilities": [
+          {
+            "value": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team.",
+            "url": "https://careers.synthetic.example/jobs/1",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "required_years_experience": [
+          {
+            "value": "Fresh graduates welcome.",
+            "url": "https://careers.synthetic.example/jobs/1",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "education": [
+          {
+            "value": "Requirements: a bachelor degree in any discipline.",
+            "url": "https://careers.synthetic.example/jobs/1",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "location": [
+          {
+            "value": "Ngau Tau Kok",
+            "url": "https://careers.synthetic.example/jobs/1",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "employment_type": [
+          {
+            "value": "FULL_TIME",
+            "url": "https://careers.synthetic.example/jobs/1",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ]
+      },
+      "conflicts": [],
+      "errors": [],
+      "outstanding_unknowns": [
+        "graduation_year_eligibility",
+        "student_status_requirement",
+        "cantonese_speaking_requirement",
+        "english_requirement",
+        "hong_kong_work_authorization",
+        "sales_or_commission_duties"
+      ]
+    },
+    {
+      "fixture_id": "SYN-02",
+      "original": {
+        "title": "Corporate Communications Assistant",
+        "company": "Synthetic Insurer",
+        "location": "Tai Po",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000002",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "before": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "E"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "jd_incomplete"
+        ]
+      },
+      "after": {
+        "decision": "priority_a",
+        "eligibility": "eligible",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": []
+      },
+      "evidence_status": "verified_cross_source",
+      "matches": [
+        {
+          "url": "https://careers.synthetic.example/jobs/2",
+          "source": "employer_official_careers",
+          "retrieved_at": "2026-10-08T16:17:42+00:00",
+          "candidate_listing": {
+            "title": "Corporate Communications Assistant",
+            "company": "Synthetic Insurer",
+            "location": "Tai Po",
+            "source": "employer_official_careers",
+            "url": "https://careers.synthetic.example/jobs/2",
+            "requisition_id": "R1",
+            "department": "Operations",
+            "employment_type": "FULL_TIME",
+            "work_arrangement": "onsite",
+            "posted_at": "2026-10-01",
+            "teaser": "Support project coordination.",
+            "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+            "fixture_same_job": true
+          },
+          "verdict": "verified_same_job",
+          "reasons": [
+            "same_employer",
+            "matching_title",
+            "compatible_hk_location",
+            "same_requisition_id"
+          ],
+          "conflicts": []
+        }
+      ],
+      "field_provenance": {
+        "responsibilities": [
+          {
+            "value": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team.",
+            "url": "https://careers.synthetic.example/jobs/2",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "required_years_experience": [
+          {
+            "value": "Fresh graduates welcome.",
+            "url": "https://careers.synthetic.example/jobs/2",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "education": [
+          {
+            "value": "Requirements: a bachelor degree in any discipline.",
+            "url": "https://careers.synthetic.example/jobs/2",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "location": [
+          {
+            "value": "Tai Po",
+            "url": "https://careers.synthetic.example/jobs/2",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "employment_type": [
+          {
+            "value": "FULL_TIME",
+            "url": "https://careers.synthetic.example/jobs/2",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ]
+      },
+      "conflicts": [],
+      "errors": [],
+      "outstanding_unknowns": [
+        "graduation_year_eligibility",
+        "student_status_requirement",
+        "cantonese_speaking_requirement",
+        "english_requirement",
+        "hong_kong_work_authorization",
+        "sales_or_commission_duties"
+      ]
+    },
+    {
+      "fixture_id": "SYN-03",
+      "original": {
+        "title": "Insurance Sales Consultant",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000003",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "before": {
+        "decision": "exclude",
+        "eligibility": "ineligible",
+        "career_fit": {
+          "lanes": [],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "direct_product_sales",
+          "jd_incomplete",
+          "target_lane_unconfirmed"
+        ]
+      },
+      "after": {
+        "decision": "exclude",
+        "eligibility": "ineligible",
+        "career_fit": {
+          "lanes": [],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "direct_product_sales",
+          "jd_incomplete",
+          "target_lane_unconfirmed"
+        ]
+      },
+      "evidence_status": "needs_manual_review",
+      "matches": [],
+      "field_provenance": {},
+      "conflicts": [],
+      "errors": [],
+      "outstanding_unknowns": []
+    },
+    {
+      "fixture_id": "SYN-04",
+      "original": {
+        "title": "Wealth Management Trainee",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000004",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "before": {
+        "decision": "exclude",
+        "eligibility": "ineligible",
+        "career_fit": {
+          "lanes": [
+            "A"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "direct_product_sales",
+          "jd_incomplete"
+        ]
+      },
+      "after": {
+        "decision": "exclude",
+        "eligibility": "ineligible",
+        "career_fit": {
+          "lanes": [
+            "A"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "direct_product_sales",
+          "jd_incomplete"
+        ]
+      },
+      "evidence_status": "needs_manual_review",
+      "matches": [],
+      "field_provenance": {},
+      "conflicts": [],
+      "errors": [],
+      "outstanding_unknowns": []
+    },
+    {
+      "fixture_id": "SYN-05",
+      "original": {
+        "title": "Consultant / Senior Consultant",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000005",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "before": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "mixed_seniority_confirm_junior_opening",
+          "jd_incomplete",
+          "target_lane_unconfirmed"
+        ]
+      },
+      "after": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "mixed_seniority_confirm_junior_opening"
+        ]
+      },
+      "evidence_status": "verified_cross_source",
+      "matches": [
+        {
+          "url": "https://careers.synthetic.example/jobs/5",
+          "source": "employer_official_careers",
+          "retrieved_at": "2026-10-08T16:17:42+00:00",
+          "candidate_listing": {
+            "title": "Consultant / Senior Consultant",
+            "company": "Synthetic Holdings",
+            "location": "Hong Kong",
+            "source": "employer_official_careers",
+            "url": "https://careers.synthetic.example/jobs/5",
+            "requisition_id": "R1",
+            "department": "Operations",
+            "employment_type": "FULL_TIME",
+            "work_arrangement": "onsite",
+            "posted_at": "2026-10-01",
+            "teaser": "Support project coordination.",
+            "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+            "fixture_same_job": true
+          },
+          "verdict": "verified_same_job",
+          "reasons": [
+            "same_employer",
+            "matching_title",
+            "compatible_hk_location",
+            "same_requisition_id"
+          ],
+          "conflicts": []
+        }
+      ],
+      "field_provenance": {
+        "responsibilities": [
+          {
+            "value": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team.",
+            "url": "https://careers.synthetic.example/jobs/5",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "required_years_experience": [
+          {
+            "value": "Fresh graduates welcome.",
+            "url": "https://careers.synthetic.example/jobs/5",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "education": [
+          {
+            "value": "Requirements: a bachelor degree in any discipline.",
+            "url": "https://careers.synthetic.example/jobs/5",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "location": [
+          {
+            "value": "Hong Kong",
+            "url": "https://careers.synthetic.example/jobs/5",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "employment_type": [
+          {
+            "value": "FULL_TIME",
+            "url": "https://careers.synthetic.example/jobs/5",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ]
+      },
+      "conflicts": [],
+      "errors": [],
+      "outstanding_unknowns": [
+        "graduation_year_eligibility",
+        "student_status_requirement",
+        "cantonese_speaking_requirement",
+        "english_requirement",
+        "hong_kong_work_authorization",
+        "sales_or_commission_duties"
+      ]
+    },
+    {
+      "fixture_id": "SYN-06",
+      "original": {
+        "title": "Senior Manager, ESG",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000006",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "before": {
+        "decision": "exclude",
+        "eligibility": "ineligible",
+        "career_fit": {
+          "lanes": [
+            "F"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "clearly_senior_title",
+          "jd_incomplete"
+        ]
+      },
+      "after": {
+        "decision": "exclude",
+        "eligibility": "ineligible",
+        "career_fit": {
+          "lanes": [
+            "F"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "clearly_senior_title",
+          "jd_incomplete"
+        ]
+      },
+      "evidence_status": "needs_manual_review",
+      "matches": [],
+      "field_provenance": {},
+      "conflicts": [],
+      "errors": [],
+      "outstanding_unknowns": []
+    },
+    {
+      "fixture_id": "SYN-07",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Singapore",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000007",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "before": {
+        "decision": "exclude",
+        "eligibility": "ineligible",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "overseas",
+        "reasons": [
+          "overseas_location",
+          "jd_incomplete"
+        ]
+      },
+      "after": {
+        "decision": "exclude",
+        "eligibility": "ineligible",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "overseas",
+        "reasons": [
+          "overseas_location",
+          "jd_incomplete"
+        ]
+      },
+      "evidence_status": "needs_manual_review",
+      "matches": [],
+      "field_provenance": {},
+      "conflicts": [],
+      "errors": [],
+      "outstanding_unknowns": []
+    },
+    {
+      "fixture_id": "SYN-08",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000008",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "before": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "needs_verification",
+        "reasons": [
+          "location_requires_verification",
+          "jd_incomplete"
+        ]
+      },
+      "after": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "needs_verification",
+        "reasons": [
+          "location_requires_verification",
+          "jd_incomplete",
+          "jd_evidence_requires_review"
+        ]
+      },
+      "evidence_status": "needs_manual_review",
+      "matches": [
+        {
+          "url": "https://careers.synthetic.example/jobs/8",
+          "source": "employer_official_careers",
+          "retrieved_at": "2026-10-08T16:17:42+00:00",
+          "candidate_listing": {
+            "title": "Operations Graduate",
+            "company": "Synthetic Holdings",
+            "location": "Hong Kong",
+            "source": "employer_official_careers",
+            "url": "https://careers.synthetic.example/jobs/8",
+            "requisition_id": "R1",
+            "department": "Operations",
+            "employment_type": "FULL_TIME",
+            "work_arrangement": "onsite",
+            "posted_at": "2026-10-01",
+            "teaser": "Support project coordination.",
+            "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+            "fixture_same_job": true
+          },
+          "verdict": "possible_match_review",
+          "reasons": [
+            "same_employer",
+            "matching_title",
+            "hk_location_unconfirmed"
+          ],
+          "conflicts": []
+        }
+      ],
+      "field_provenance": {},
+      "conflicts": [],
+      "errors": [],
+      "outstanding_unknowns": [
+        "responsibilities",
+        "required_years_experience",
+        "education",
+        "graduation_year_eligibility",
+        "student_status_requirement",
+        "cantonese_speaking_requirement",
+        "english_requirement",
+        "hong_kong_work_authorization",
+        "sales_or_commission_duties",
+        "employment_type",
+        "location"
+      ]
+    },
+    {
+      "fixture_id": "SYN-09",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong / Singapore",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000009",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "before": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "needs_verification",
+        "reasons": [
+          "location_requires_verification",
+          "jd_incomplete"
+        ]
+      },
+      "after": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "needs_verification",
+        "reasons": [
+          "location_requires_verification",
+          "jd_incomplete",
+          "jd_evidence_requires_review"
+        ]
+      },
+      "evidence_status": "needs_manual_review",
+      "matches": [
+        {
+          "url": "https://careers.synthetic.example/jobs/9",
+          "source": "employer_official_careers",
+          "retrieved_at": "2026-10-08T16:17:42+00:00",
+          "candidate_listing": {
+            "title": "Operations Graduate",
+            "company": "Synthetic Holdings",
+            "location": "Hong Kong / Singapore",
+            "source": "employer_official_careers",
+            "url": "https://careers.synthetic.example/jobs/9",
+            "requisition_id": "R1",
+            "department": "Operations",
+            "employment_type": "FULL_TIME",
+            "work_arrangement": "onsite",
+            "posted_at": "2026-10-01",
+            "teaser": "Support project coordination.",
+            "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+            "fixture_same_job": true
+          },
+          "verdict": "possible_match_review",
+          "reasons": [
+            "same_employer",
+            "matching_title",
+            "hk_location_unconfirmed"
+          ],
+          "conflicts": []
+        }
+      ],
+      "field_provenance": {},
+      "conflicts": [],
+      "errors": [],
+      "outstanding_unknowns": [
+        "responsibilities",
+        "required_years_experience",
+        "education",
+        "graduation_year_eligibility",
+        "student_status_requirement",
+        "cantonese_speaking_requirement",
+        "english_requirement",
+        "hong_kong_work_authorization",
+        "sales_or_commission_duties",
+        "employment_type",
+        "location"
+      ]
+    },
+    {
+      "fixture_id": "SYN-10",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000010",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "before": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "jd_incomplete"
+        ]
+      },
+      "after": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "jd_incomplete",
+          "jd_evidence_requires_review"
+        ]
+      },
+      "evidence_status": "needs_manual_review",
+      "matches": [
+        {
+          "url": "https://careers.synthetic.example/jobs/10",
+          "source": "employer_official_careers",
+          "retrieved_at": "2026-10-08T16:17:42+00:00",
+          "candidate_listing": {
+            "title": "Operations Graduate",
+            "company": "Synthetic Holdings",
+            "location": "Hong Kong",
+            "source": "employer_official_careers",
+            "url": "https://careers.synthetic.example/jobs/10",
+            "requisition_id": "R99",
+            "department": "Operations",
+            "employment_type": "FULL_TIME",
+            "work_arrangement": "onsite",
+            "posted_at": "2026-10-01",
+            "teaser": "Support project coordination.",
+            "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+            "fixture_same_job": false
+          },
+          "verdict": "conflicting_sources",
+          "reasons": [
+            "same_employer",
+            "matching_title"
+          ],
+          "conflicts": [
+            "requisition_id"
+          ]
+        }
+      ],
+      "field_provenance": {},
+      "conflicts": [
+        {
+          "url": "https://careers.synthetic.example/jobs/10",
+          "fields": [
+            "requisition_id"
+          ]
+        }
+      ],
+      "errors": [],
+      "outstanding_unknowns": [
+        "responsibilities",
+        "required_years_experience",
+        "education",
+        "graduation_year_eligibility",
+        "student_status_requirement",
+        "cantonese_speaking_requirement",
+        "english_requirement",
+        "hong_kong_work_authorization",
+        "sales_or_commission_duties",
+        "employment_type",
+        "location"
+      ]
+    },
+    {
+      "fixture_id": "SYN-11",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000011",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "before": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "jd_incomplete"
+        ]
+      },
+      "after": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "jd_incomplete",
+          "jd_evidence_requires_review"
+        ]
+      },
+      "evidence_status": "market_reference_only",
+      "matches": [
+        {
+          "url": "https://careers.synthetic.example/jobs/11",
+          "source": "employer_official_careers",
+          "retrieved_at": "2026-10-08T16:17:42+00:00",
+          "candidate_listing": {
+            "title": "Operations Graduate",
+            "company": "Different Synthetic Employer",
+            "location": "Hong Kong",
+            "source": "employer_official_careers",
+            "url": "https://careers.synthetic.example/jobs/11",
+            "requisition_id": "R1",
+            "department": "Operations",
+            "employment_type": "FULL_TIME",
+            "work_arrangement": "onsite",
+            "posted_at": "2026-10-01",
+            "teaser": "Support project coordination.",
+            "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+            "fixture_same_job": false
+          },
+          "verdict": "market_reference_only",
+          "reasons": [
+            "different_employer"
+          ],
+          "conflicts": []
+        }
+      ],
+      "field_provenance": {},
+      "conflicts": [],
+      "errors": [],
+      "outstanding_unknowns": [
+        "responsibilities",
+        "required_years_experience",
+        "education",
+        "graduation_year_eligibility",
+        "student_status_requirement",
+        "cantonese_speaking_requirement",
+        "english_requirement",
+        "hong_kong_work_authorization",
+        "sales_or_commission_duties",
+        "employment_type",
+        "location"
+      ]
+    },
+    {
+      "fixture_id": "SYN-12",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000012",
+        "requisition_id": "",
+        "department": "",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "before": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "jd_incomplete"
+        ]
+      },
+      "after": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "jd_incomplete",
+          "jd_evidence_requires_review"
+        ]
+      },
+      "evidence_status": "needs_manual_review",
+      "matches": [
+        {
+          "url": "https://careers.synthetic.example/jobs/12",
+          "source": "employer_official_careers",
+          "retrieved_at": "2026-10-08T16:17:42+00:00",
+          "candidate_listing": {
+            "title": "Operations Graduate",
+            "company": "Synthetic Holdings",
+            "location": "Hong Kong",
+            "source": "employer_official_careers",
+            "url": "https://careers.synthetic.example/jobs/12",
+            "requisition_id": "",
+            "department": "",
+            "employment_type": "FULL_TIME",
+            "work_arrangement": "",
+            "posted_at": "2026-10-01",
+            "teaser": "Support project coordination.",
+            "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+            "fixture_same_job": false
+          },
+          "verdict": "possible_match_review",
+          "reasons": [
+            "same_employer",
+            "matching_title",
+            "compatible_hk_location",
+            "insufficient_identity_signals"
+          ],
+          "conflicts": []
+        }
+      ],
+      "field_provenance": {},
+      "conflicts": [],
+      "errors": [],
+      "outstanding_unknowns": [
+        "responsibilities",
+        "required_years_experience",
+        "education",
+        "graduation_year_eligibility",
+        "student_status_requirement",
+        "cantonese_speaking_requirement",
+        "english_requirement",
+        "hong_kong_work_authorization",
+        "sales_or_commission_duties",
+        "employment_type",
+        "location"
+      ]
+    },
+    {
+      "fixture_id": "SYN-13",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000013",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "before": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "jd_incomplete"
+        ]
+      },
+      "after": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "jd_incomplete",
+          "jd_evidence_requires_review"
+        ]
+      },
+      "evidence_status": "needs_manual_review",
+      "matches": [
+        {
+          "url": "https://careers.synthetic.example/jobs/13",
+          "source": "employer_official_careers",
+          "retrieved_at": "2026-10-08T16:17:42+00:00",
+          "candidate_listing": {
+            "title": "Operations Graduate",
+            "company": "Synthetic Holdings",
+            "location": "Hong Kong",
+            "source": "employer_official_careers",
+            "url": "https://careers.synthetic.example/jobs/13",
+            "requisition_id": "R1",
+            "department": "Operations",
+            "employment_type": "FULL_TIME",
+            "work_arrangement": "onsite",
+            "posted_at": "2026-10-01",
+            "teaser": "Support project coordination.",
+            "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+            "fixture_same_job": true,
+            "fields": {
+              "education": "Bachelor degree"
+            }
+          },
+          "verdict": "verified_same_job",
+          "reasons": [
+            "same_employer",
+            "matching_title",
+            "compatible_hk_location",
+            "same_requisition_id"
+          ],
+          "conflicts": []
+        },
+        {
+          "url": "https://www.ctgoodjobs.hk/job/10000013",
+          "source": "ctgoodjobs",
+          "retrieved_at": "2026-10-08T16:17:42+00:00",
+          "candidate_listing": {
+            "title": "Operations Graduate",
+            "company": "Synthetic Holdings",
+            "location": "Hong Kong",
+            "source": "ctgoodjobs",
+            "url": "https://www.ctgoodjobs.hk/job/10000013",
+            "requisition_id": "R1",
+            "department": "Operations",
+            "employment_type": "FULL_TIME",
+            "work_arrangement": "onsite",
+            "posted_at": "2026-10-01",
+            "teaser": "Support project coordination.",
+            "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided.",
+            "fixture_same_job": true,
+            "fields": {
+              "education": "Masters degree only"
+            }
+          },
+          "verdict": "verified_same_job",
+          "reasons": [
+            "same_employer",
+            "matching_title",
+            "compatible_hk_location",
+            "same_requisition_id"
+          ],
+          "conflicts": []
+        }
+      ],
+      "field_provenance": {
+        "responsibilities": [
+          {
+            "value": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team.",
+            "url": "https://careers.synthetic.example/jobs/13",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          },
+          {
+            "value": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team.",
+            "url": "https://www.ctgoodjobs.hk/job/10000013",
+            "source": "ctgoodjobs",
+            "source_host": "www.ctgoodjobs.hk",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "required_years_experience": [
+          {
+            "value": "Fresh graduates welcome.",
+            "url": "https://careers.synthetic.example/jobs/13",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          },
+          {
+            "value": "Fresh graduates welcome.",
+            "url": "https://www.ctgoodjobs.hk/job/10000013",
+            "source": "ctgoodjobs",
+            "source_host": "www.ctgoodjobs.hk",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "education": [
+          {
+            "value": "Bachelor degree",
+            "url": "https://careers.synthetic.example/jobs/13",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          },
+          {
+            "value": "Masters degree only",
+            "url": "https://www.ctgoodjobs.hk/job/10000013",
+            "source": "ctgoodjobs",
+            "source_host": "www.ctgoodjobs.hk",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "location": [
+          {
+            "value": "Hong Kong",
+            "url": "https://careers.synthetic.example/jobs/13",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          },
+          {
+            "value": "Hong Kong",
+            "url": "https://www.ctgoodjobs.hk/job/10000013",
+            "source": "ctgoodjobs",
+            "source_host": "www.ctgoodjobs.hk",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ],
+        "employment_type": [
+          {
+            "value": "FULL_TIME",
+            "url": "https://careers.synthetic.example/jobs/13",
+            "source": "employer_official_careers",
+            "source_host": "careers.synthetic.example",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          },
+          {
+            "value": "FULL_TIME",
+            "url": "https://www.ctgoodjobs.hk/job/10000013",
+            "source": "ctgoodjobs",
+            "source_host": "www.ctgoodjobs.hk",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "same_employer",
+              "matching_title",
+              "compatible_hk_location",
+              "same_requisition_id"
+            ]
+          }
+        ]
+      },
+      "conflicts": [
+        {
+          "field": "education",
+          "evidence": [
+            {
+              "value": "Bachelor degree",
+              "url": "https://careers.synthetic.example/jobs/13",
+              "source": "employer_official_careers",
+              "source_host": "careers.synthetic.example",
+              "retrieved_at": "2026-10-08T16:17:42+00:00",
+              "match_reasons": [
+                "same_employer",
+                "matching_title",
+                "compatible_hk_location",
+                "same_requisition_id"
+              ]
+            },
+            {
+              "value": "Masters degree only",
+              "url": "https://www.ctgoodjobs.hk/job/10000013",
+              "source": "ctgoodjobs",
+              "source_host": "www.ctgoodjobs.hk",
+              "retrieved_at": "2026-10-08T16:17:42+00:00",
+              "match_reasons": [
+                "same_employer",
+                "matching_title",
+                "compatible_hk_location",
+                "same_requisition_id"
+              ]
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "outstanding_unknowns": [
+        "graduation_year_eligibility",
+        "student_status_requirement",
+        "cantonese_speaking_requirement",
+        "english_requirement",
+        "hong_kong_work_authorization",
+        "sales_or_commission_duties"
+      ]
+    },
+    {
+      "fixture_id": "SYN-14",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000014",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination."
+      },
+      "before": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "jd_incomplete"
+        ]
+      },
+      "after": {
+        "decision": "needs_manual_review",
+        "eligibility": "uncertain",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "D"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": [
+          "jd_incomplete",
+          "jd_evidence_requires_review"
+        ]
+      },
+      "evidence_status": "needs_manual_review",
+      "matches": [],
+      "field_provenance": {},
+      "conflicts": [],
+      "errors": [
+        "employer_official_careers: TimeoutError",
+        "jobsdb: TimeoutError",
+        "linkedin: TimeoutError",
+        "ctgoodjobs: TimeoutError"
+      ],
+      "outstanding_unknowns": [
+        "responsibilities",
+        "required_years_experience",
+        "education",
+        "graduation_year_eligibility",
+        "student_status_requirement",
+        "cantonese_speaking_requirement",
+        "english_requirement",
+        "hong_kong_work_authorization",
+        "sales_or_commission_duties",
+        "employment_type",
+        "location"
+      ]
+    },
+    {
+      "fixture_id": "SYN-15",
+      "original": {
+        "title": "Operations Graduate",
+        "company": "Synthetic Holdings",
+        "location": "Hong Kong",
+        "source": "linkedin",
+        "url": "https://www.linkedin.com/jobs/view/10000015",
+        "requisition_id": "R1",
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "work_arrangement": "onsite",
+        "posted_at": "2026-10-01",
+        "teaser": "Support project coordination.",
+        "description": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team. Requirements: a bachelor degree in any discipline. Fresh graduates welcome. Training and project mentorship are provided."
+      },
+      "before": {
+        "decision": "priority_a",
+        "eligibility": "eligible",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": []
+      },
+      "after": {
+        "decision": "priority_a",
+        "eligibility": "eligible",
+        "career_fit": {
+          "lanes": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "technical_review": false
+        },
+        "geography": "hong_kong",
+        "reasons": []
+      },
+      "evidence_status": "verified_original",
+      "matches": [],
+      "field_provenance": {
+        "responsibilities": [
+          {
+            "value": "Responsibilities: coordinate operational projects and stakeholder communications. Maintain reports and improve internal control processes with the graduate team.",
+            "url": "https://www.linkedin.com/jobs/view/10000015",
+            "source": "linkedin",
+            "source_host": "www.linkedin.com",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "original_listing"
+            ]
+          }
+        ],
+        "required_years_experience": [
+          {
+            "value": "Fresh graduates welcome.",
+            "url": "https://www.linkedin.com/jobs/view/10000015",
+            "source": "linkedin",
+            "source_host": "www.linkedin.com",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "original_listing"
+            ]
+          }
+        ],
+        "education": [
+          {
+            "value": "Requirements: a bachelor degree in any discipline.",
+            "url": "https://www.linkedin.com/jobs/view/10000015",
+            "source": "linkedin",
+            "source_host": "www.linkedin.com",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "original_listing"
+            ]
+          }
+        ],
+        "location": [
+          {
+            "value": "Hong Kong",
+            "url": "https://www.linkedin.com/jobs/view/10000015",
+            "source": "linkedin",
+            "source_host": "www.linkedin.com",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "original_listing"
+            ]
+          }
+        ],
+        "employment_type": [
+          {
+            "value": "FULL_TIME",
+            "url": "https://www.linkedin.com/jobs/view/10000015",
+            "source": "linkedin",
+            "source_host": "www.linkedin.com",
+            "retrieved_at": "2026-10-08T16:17:42+00:00",
+            "match_reasons": [
+              "original_listing"
+            ]
+          }
+        ]
+      },
+      "conflicts": [],
+      "errors": [],
+      "outstanding_unknowns": []
+    }
+  ],
+  "input_sha256": "616375588f1b77543f3bda03f6cdcd31a6d9bd70db4e85e6f5dcc3212a09bb0c"
+}

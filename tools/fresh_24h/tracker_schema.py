@@ -26,6 +26,7 @@ PASS_EXTRA = [
 # treats these names as internal the same way it treats underscore keys.
 SCORED_ARTIFACT_EXTRA = [
     "possible_repost_of",
+    "v3_decision", "v3_eligibility", "v3_evidence_status", "v3_reasons", "v3_evidence_path",
 ]
 
 

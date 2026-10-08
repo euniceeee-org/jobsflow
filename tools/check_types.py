@@ -16,6 +16,9 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 
 TYPED_MODULES = [
+    "tools/fresh_24h/cross_source_enrich.py",
+    "tools/fresh_24h/v3_sources.py",
+    "tools/fresh_24h/v3_pipeline.py",
     # Workflow policy/state/confirmation spine.
     "tools/workflow/policy.py",
     "tools/workflow/entity_state.py",

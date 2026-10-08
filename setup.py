@@ -947,7 +947,7 @@ def build_queries_config(
                 "jobage_days": 1,
             },
             "freehire": {
-                "enabled": True,
+                "enabled": False,
                 "cli": ".agents/skills/freehire-search/cli/src/cli.ts",
                 "jobage_days": 1,
             },

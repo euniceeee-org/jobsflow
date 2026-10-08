@@ -75,6 +75,8 @@ from tools.fresh_24h.tracker_schema import (  # noqa: E402
     merge_tracker_headers,
 )
 from tools.io_utils import atomic_write_json, atomic_write_stream, atomic_write_text  # noqa: E402
+from tools.fresh_24h.cross_source_enrich import load_v3_config, prohibited_listing  # noqa: E402
+from tools.fresh_24h.v3_pipeline import V3Run, config_fingerprint  # noqa: E402
 
 # JD full-text cache imports (imported inline in deep_enrich_hit to keep optional)
 
@@ -89,9 +91,8 @@ _INTERNAL_TO_EXTERNAL_DEPTH = {
     "paste_needed": "paste_needed",
 }
 
-# 4: artifacts keep pass1_low_priority rows, judge teasers semantically and
-# carry possible_repost_of; a v3 artifact must be rescored, not reused.
-SCORED_ARTIFACT_SCHEMA_VERSION = 4
+# 5: invalidate pre-FreeHire-exclusion artifacts and bind V3 configuration.
+SCORED_ARTIFACT_SCHEMA_VERSION = 5
 
 
 def _workspace_root(repo: Path) -> Path:
@@ -152,6 +153,7 @@ def build_scored_artifact_metadata(
         "max_deep": int(max_deep),
         "jd_fingerprints": dict(jd_fingerprints or {}),
         "semantic_state_sha256": semantic_state_fingerprint(repo or source.parent),
+        "v3_config_sha256": config_fingerprint(load_v3_config(repo or source.parent)),
     }
 
 
@@ -177,6 +179,9 @@ def load_reusable_scored_artifact(
     """Load the previous two-pass result only when every scoring input matches."""
     source = Path(source_csv).expanduser().resolve()
     scored = scored_artifact_path(source)
+    # Check evidence TTL/conflicts through V3's own cache on every rerun.
+    if load_v3_config(repo).get("enabled") is True:
+        return None
     meta_path = scored.with_suffix(".json")
     if not source.is_file() or not scored.is_file() or not meta_path.is_file():
         return None
@@ -188,6 +193,8 @@ def load_reusable_scored_artifact(
     if not isinstance(artifact, dict):
         return None
     if artifact.get("schema_version") != SCORED_ARTIFACT_SCHEMA_VERSION:
+        return None
+    if artifact.get("v3_config_sha256") != config_fingerprint(load_v3_config(repo)):
         return None
     if artifact.get("source_csv") != str(source):
         return None
@@ -284,6 +291,13 @@ def select_rows_for_retention(
     meta = {"final_selected": 0, "final_filtered": 0, "provisional": 0, "pass1_low_priority": 0}
     for raw in rows:
         row = dict(raw)
+        if row.get("v3_decision") == "exclude":
+            meta["final_filtered"] += 1
+            continue
+        if row.get("v3_decision") == "needs_manual_review":
+            selected.append(row)
+            meta["provisional"] += 1
+            continue
         if str(row.get("评估状态") or "") == "pass1_low_priority":
             # Low pass-1 rows are review-only: they enter only through an
             # explicit ``push --select``, never through a retention view that
@@ -564,7 +578,10 @@ def _save_cache(url: str, text: str, *, source: str, repo: Path) -> dict[str, An
 def _load_cache(url: str, repo: Path) -> tuple[str | None, dict]:
     try:
         from jd_cache import load_jd_cache as _ld
-        return _ld(url, repo)
+        text, meta = _ld(url, repo)
+        if "freehire" in url.casefold() or "freehire" in str(meta.get("source") or "").casefold():
+            return None, {}
+        return text, meta
     except ImportError:
         return None, {}
 
@@ -621,6 +638,9 @@ def deep_enrich_hit(
     URL should already be normalized early; re-normalize is idempotent.
     Set use_browser=False or env PORTAL_JD_BROWSER=0 to skip all browser deep.
     """
+    if prohibited_listing(h):
+        h["_enrich"] = {"mode": "prohibited_source", "ok": False}
+        return "", "teaser_unavailable"
     normalize_hit_url(h)
     url = h.get("url") or ""
     portal_host = (url or "").lower()
@@ -988,6 +1008,8 @@ def run_two_pass(
     drop_below_final: bool = True,
     defer_deep: bool = False,
     preview_floor: float | None = None,
+    v3_config: dict[str, Any] | None = None,
+    v3_provider: Any = None,
 ) -> tuple[list[dict], dict]:
     """
     Returns (sheet_rows with two-pass fields, meta).
@@ -1010,7 +1032,13 @@ def run_two_pass(
     routing_gate = effective_preview_floor if defer_deep else float(gate_pass1)
     retrieval_floor = default_retrieval_floor(routing_gate)
 
-    # URL normalize before scoring/dedup (not only inside deep enrich)
+    config = v3_config if v3_config is not None else load_v3_config(repo)
+    v3 = V3Run(repo, config, v3_provider) if config.get("enabled") is True else None
+    if v3 is not None:
+        for hit in hits:
+            if not prohibited_listing(hit):
+                v3.register(hit)
+    # Snapshot V3 evidence first, then retain the historical URL normalization.
     normalize_hits_urls(hits)
 
     meta: dict[str, Any] = {
@@ -1072,7 +1100,11 @@ def run_two_pass(
         "jobsdb_cdp_detail_requests": 0,
         "enrich_errors": [],
         "jobsdb_detail_status": None,
+        "prohibited_source_rows": [],
     }
+    if v3 is not None:
+        meta["jobsdb_detail_transport"] = "public_search_fields_only"
+        meta["jobsdb_detail_entrypoint"] = "v3_public_only"
 
     # Keep one profile fingerprint for every assessment in this run.  The
     # profile itself never enters the assessment JSON; only its hash does.
@@ -1126,11 +1158,18 @@ def run_two_pass(
     low_priority_rows: list[dict] = []
     for h in hits:
         h.setdefault("_preview_key", preview_key(h))
+        if prohibited_listing(h):
+            meta["prohibited_source_rows"].append({k: v for k, v in h.items() if not k.startswith("_")})
+            continue
         # Pass 1 — teaser / card only (no deep fetch)
         teaser1 = h.get("teaser") or ""
         sc1 = score_hit(h, teaser1, repo=repo, profile=scoring_profile)
         _record_score_distribution(meta["pass1_score_distribution"], sc1.score)
         h["_sc1"] = sc1
+        if v3 is not None and h["_v3_screen"]["decision"] == "exclude":
+            excluded = _tracker_row_from_scores(h, sc1, sc1, depth="teaser", status="provisional_needs_jd")
+            low_priority_rows.append(excluded)
+            continue
         if getattr(sc1, "language_gate", "") == "FAIL":
             record_assessment(
                 h,
@@ -1269,6 +1308,8 @@ def run_two_pass(
             meta["assessment_dir"] = str(
                 _workspace_root(repo) / "02_Tracker" / "job_assessments"
             )
+        if v3 is not None:
+            v3.decorate(draft_rows, hits, meta)
         return draft_rows, meta
 
     # Cache hits are zero-cost and never consume the network budget.  Among
@@ -1332,7 +1373,7 @@ def run_two_pass(
     # fetched through one serial Bun worker for the jobs that can actually
     # consume the deep-fetch budget; this removes one process startup per job.
     linkedin_batch: dict[str, Any] = {}
-    if selected_network:
+    if selected_network and v3 is None:
         li_candidates = []
         li_seen_ids: set[str] = set()
         for candidate, _score in selected_network:
@@ -1364,7 +1405,11 @@ def run_two_pass(
     jobsdb_retry = 0
     jobsdb_cache_first = True
     jobsdb_recovery = None
+    browser_pool = None
+    jobsdb_circuit = None
     try:
+        if v3 is not None:
+            raise ImportError("V3 uses public-only providers, never CDP or WAF recovery")
         from portal_jd_browser import (  # type: ignore
             BrowserSessionPool,
             JobsdbHumanVerificationRecovery,
@@ -1483,12 +1528,13 @@ def run_two_pass(
                 if jobsdb_recovery is not None and is_jobsdb_url(portal_host):
                     h["_jobsdb_human_recovery"] = jobsdb_recovery
                 try:
-                    text2, depth = _run_deep_enrich(
-                        h,
-                        repo=repo,
-                        cache_first=jobsdb_cache_first,
-                        jobsdb_retry=jobsdb_retry,
-                    )
+                    if v3 is not None:
+                        cached_text, cached_meta = _load_cache(str(h.get("url") or ""), repo)
+                        text2, depth = v3.enrich(h, cached_text=cached_text, cache_meta=cached_meta)
+                    else:
+                        text2, depth = _run_deep_enrich(
+                            h, repo=repo, cache_first=jobsdb_cache_first, jobsdb_retry=jobsdb_retry,
+                        )
                 except Exception as exc:  # a failed row must never abort the scan
                     meta["enrich_errors"].append(
                         {
@@ -1571,6 +1617,8 @@ def run_two_pass(
                     time.sleep(sleep_s)
             else:
                 depth = "teaser_capped"
+                if v3 is not None:
+                    teaser2, depth = v3.enrich(h, allow_requests=False)
 
             # Only claim deep JD in reason/confidence when enrich actually returned deep text
             sc2 = score_hit(
@@ -1579,7 +1627,7 @@ def run_two_pass(
                 jd_depth="deep" if depth == "deep" else "teaser",
                 repo=repo,
                 profile=scoring_profile,
-                jd_full=h.get("_deep_jd_full") if depth == "deep" else None,
+                jd_full=(h.get("_v3_scoring_jd") or h.get("_deep_jd_full")) if depth == "deep" else None,
             )
             h["_sc2"] = sc2
             h["_jd_depth"] = depth
@@ -1756,6 +1804,9 @@ def run_two_pass(
             / "02_Tracker"
             / "job_assessments"
         )
+    if v3 is not None:
+        v3.decorate(draft_rows, hits, meta)
+        meta["final_kept"] = sum(row.get("v3_decision") in {"priority_a", "priority_b"} and row.get("评估状态") in {"ready", "pending"} for row in draft_rows)
     return draft_rows, meta
 
 
@@ -1828,6 +1879,9 @@ def _persist_deep_jds(rows: list[dict], repo: Path) -> None:
     cache_dir.mkdir(parents=True, exist_ok=True)
     n = 0
     for r in rows:
+        if r.get("v3_evidence_status"):
+            # Do not cache another listing's description under the original URL.
+            continue
         jd_full = r.pop("_deep_jd_full", "")
         if not jd_full:
             continue

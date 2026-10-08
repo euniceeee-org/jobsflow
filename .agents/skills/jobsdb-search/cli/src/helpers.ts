@@ -47,6 +47,7 @@ function retryCapMs(): number {
  * bridge.
  */
 function jobsdbCookieHeader(): string {
+  if (process.env.JOBSFLOW_PUBLIC_ONLY === "1") return ""
   const fromEnv = (process.env.JOBSDB_COOKIE || "").trim()
   if (fromEnv) return fromEnv
   const root = (process.env.JOBSEARCH_ROOT || "").trim()

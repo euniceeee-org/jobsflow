@@ -45,6 +45,7 @@ if str(REPO_DEFAULT) not in sys.path:
 from tools.io_utils import atomic_write_json, atomic_write_stream
 from tools.audit_log import append_audit_event
 from tools.spreadsheet_safety import neutralize_spreadsheet_formula
+from tools.fresh_24h.cross_source_enrich import prohibited_listing, screen_job
 
 # Local package helpers
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -109,6 +110,7 @@ CANDIDATE_COLS = [
     "first_seen_at",
     "in_tracker",
     "possible_repost_of",
+    "raw_listing",
 ]
 
 
@@ -135,6 +137,7 @@ class JobHit:
     reject_reason: str = ""
     in_tracker: bool = False
     possible_repost_of: str = ""
+    raw_listing: dict[str, Any] = field(default_factory=dict)
 
 
 def now_utc() -> datetime:
@@ -680,6 +683,8 @@ def jobsdb_human_handoff_enabled(repo: Path) -> bool:
     # (a common failure mode when a new model searches the tree) must remain a
     # scan-only operation and may not open Chrome or request a verification
     # click.
+    if os.environ.get("JOBSFLOW_PUBLIC_ONLY") == "1":
+        return False
     if os.environ.get("JOBSFLOW_GATEWAY_ACTIVE", "").strip() != "1":
         return False
     try:
@@ -708,7 +713,7 @@ def card_to_hit(
     jid = str(card.get("id") or "")
     title = str(card.get("title") or "").strip()
     company = str(card.get("company") or "").strip() or "—"
-    location = str(card.get("location") or "").strip() or "Hong Kong"
+    location = str(card.get("location") or "").strip()
     salary = str(card.get("salary") or "—").strip() or "—"
     teaser = str(card.get("teaser") or "").strip()
     posted_raw = card.get("date")
@@ -738,6 +743,7 @@ def card_to_hit(
         query_id=query_id,
         track_hint=track_hint,
         date_precision=date_precision,
+        raw_listing=dict(card),
     )
 
 
@@ -795,6 +801,15 @@ def _contains_configured_keyword(text: str, keywords: list[str]) -> bool:
 def apply_rules(hit: JobHit, cfg: dict[str, Any]) -> None:
     if hit.decision == "reject":
         return
+    if prohibited_listing(asdict(hit)):
+        hit.decision, hit.reject_reason = "reject", "prohibited_source_freehire"
+        return
+    if (cfg.get("v3_enrichment") or {}).get("enabled") is True:
+        screening = screen_job(asdict(hit))
+        if screening["decision"] == "exclude":
+            hit.decision, hit.reject_reason = "reject", ";".join(screening["reasons"])
+            return
+        hit.soft_flags.extend(screening["reasons"])
     text = f"{hit.title}\n{hit.teaser}"
     title = hit.title or ""
 
@@ -942,6 +957,7 @@ def write_candidates_csv(path: Path, hits: list[JobHit]) -> None:
                     "first_seen_at": iso_now(),
                     "in_tracker": "yes" if h.in_tracker else "no",
                     "possible_repost_of": h.possible_repost_of,
+                    "raw_listing": json.dumps(h.raw_listing, ensure_ascii=False),
                 }
             w.writerow(
                 {
@@ -1198,6 +1214,9 @@ def main(argv: list[str] | None = None) -> int:
         or (private_queries if private_queries.exists() else tracked_preset)
     ).resolve()
     cfg = json.loads(qpath.read_text(encoding="utf-8"))
+    v3_enabled = (cfg.get("v3_enrichment") or {}).get("enabled") is True
+    if v3_enabled:
+        os.environ["JOBSFLOW_PUBLIC_ONLY"] = "1"
     if cfg.get("setup_required") and not args.queries:
         print(
             "ERROR: no private search configuration. Run /setup or "
@@ -1254,6 +1273,7 @@ def main(argv: list[str] | None = None) -> int:
             ct_refs[company_title] = prior
 
     all_hits: list[JobHit] = []
+    raw_listings: list[dict[str, Any]] = []
     errors: list[dict[str, str]] = []
     call_log: list[dict[str, Any]] = []
     seen_urls: set[str] = set()
@@ -1275,11 +1295,9 @@ def main(argv: list[str] | None = None) -> int:
         terms = q.get("terms") or {}
 
         for portal, pcfg in portals_cfg.items():
-            if portal in skip or not pcfg.get("enabled", True):
+            if portal.casefold() == "freehire" or portal in skip or not pcfg.get("enabled", True):
                 continue
             term = terms.get(portal)
-            if portal == "freehire" and not term:
-                term = terms.get("linkedin") or terms.get("jobsdb")
             if not term:
                 continue
             for page in range(1, page_budgets.get(portal, 1) + 1):
@@ -1431,6 +1449,7 @@ def main(argv: list[str] | None = None) -> int:
         )
         counters = {"new": 0, "duplicate": 0, "reject": 0}
         for card in results:
+            raw_listings.append({"source": portal, "query_id": qid, "listing": dict(card)})
             hit = card_to_hit(card, source=portal, query_id=qid, track_hint=track_hint)
             if not hit.url and not hit.title:
                 continue
@@ -1627,6 +1646,10 @@ def main(argv: list[str] | None = None) -> int:
             "Default writes candidates only; tracker entry is available only through the confirmed workflow push.",
         ],
     }
+    if v3_enabled:
+        raw_path = run_path.with_name(run_path.stem + "_raw.json")
+        atomic_write_json(raw_path, {"kind": "unmodified_portal_listings", "listings": raw_listings})
+        summary["raw_listings_path"] = str(raw_path)
     atomic_write_json(run_path, summary)
     append_audit_event(
         repo / "JobSearch_2026",

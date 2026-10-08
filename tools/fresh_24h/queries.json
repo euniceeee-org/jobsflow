@@ -33,7 +33,7 @@
       "jobage_days": 1
     },
     "freehire": {
-      "enabled": true,
+      "enabled": false,
       "cli": ".agents/skills/freehire-search/cli/src/cli.ts",
       "jobage_days": 1
     }

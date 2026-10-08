@@ -28,9 +28,10 @@ const UA =
  * channel-id defaults to "1" (web channel).
  */
 export async function resolveHeaders(): Promise<Record<string, string>> {
-  const sid = process.env.CTGOOD_SID
-  const visitorId = process.env.CTGOOD_VISITOR_ID
-  const channelId = process.env.CTGOOD_CHANNEL_ID || "1"
+  const publicOnly = process.env.JOBSFLOW_PUBLIC_ONLY === "1"
+  const sid = publicOnly ? undefined : process.env.CTGOOD_SID
+  const visitorId = publicOnly ? undefined : process.env.CTGOOD_VISITOR_ID
+  const channelId = publicOnly ? "1" : (process.env.CTGOOD_CHANNEL_ID || "1")
 
   if (sid && visitorId) {
     return authHeaders(sid, channelId, visitorId)
